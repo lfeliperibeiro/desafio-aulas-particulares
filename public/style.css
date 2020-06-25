@@ -8,40 +8,42 @@
 
 :root {
   --color-prymary: #0082c8;
+  --color-secondary: #121c36;
 }
 body {
   background-color: var(--color-prymary);
   font-family: "Roboto", sans-serif;
 }
 
-header{
-  background-color: #667db6;
+header {
+  background-color: var(--color-secondary);
   width: 100%;
   padding: 32px;
   text-align: center;
   box-sizing: border-box;
+  margin-bottom: 150px;
 }
 
-.links{
+.links {
   font-size: 24px;
 }
 
-.links a + a{
+.links a + a {
   margin-left: 32px;
 }
 
-.links a{
+.links a {
   text-decoration: none;
   color: white;
   position: relative;
 }
 
-.links a:hover{
+.links a:hover {
   color: #d1deff;
 }
 
-.links a::after{
-  content: '';
+.links a::after {
+  content: "";
   width: 0%;
   height: 2px;
   background-color: #d1deff;
@@ -50,7 +52,80 @@ header{
   bottom: -4px;
 }
 
-.links a:hover::after{
+.links a:hover::after {
   width: 100%;
   transition: width 400ms ease-in-out;
+}
+
+.card {
+  background-color: white;
+  width: 940px;
+  min-height: 500px;
+  margin: 45px auto;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  border-radius: 8px;
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.5);
+  animation-name: up;
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* detaisl */
+
+.details {
+  padding: 36px;
+}
+
+.details .item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 16px 0;
+}
+
+.details .item:last-child {
+  border: none;
+}
+
+.details h3,
+.details .item div:nth-child(1) {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.8px;
+  font-weight: normal;
+  color: #444;
+}
+
+.details .item div:nth-child(2) {
+  font-size: 18px;
+  font-weight: bold;
+  color: #777;
+}
+
+.details h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+
+.details .item div:nth-child(2) span {
+  padding: 8px 16px;
+  background-color: var(--color-secondary);
+  border-radius: 16px;
+  color: white;
+  margin-right: 4px;
+  margin-top: 8px;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
 }
