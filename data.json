@@ -1,0 +1,33 @@
+{
+  "teachers": [
+    {
+      "id": 1,
+      "avatar_url": "http://www.img.com",
+      "name": "Carlos Barbosa",
+      "birth": "2000-07-04",
+      "grau": "mestrado",
+      "classe": "D",
+      "atuaction": "Matematica, estatistica"
+    },
+    {
+      "id": 2,
+      "avatar_url": "http://www.img.com",
+      "name": "Carlos Barbosa",
+      "birth": "2000-07-04",
+      "grau": "mestrado",
+      "classe": "D",
+      "created_at": 1593141636612,
+      "atuaction": "Matematica, estatistica"
+    },
+    {
+      "id": 3,
+      "avatar_url": "http://www.img.com",
+      "name": "Carlos Barbosa",
+      "birth": "2000-07-04",
+      "grau": "mestrado",
+      "classe": "D",
+      "created_at": 1593141665258,
+      "atuaction": "Matematica, estatistica"
+    }
+  ]
+}

@@ -7,8 +7,8 @@
 }
 
 :root {
-  --color-prymary: #0082c8;
-  --color-secondary: #121c36;
+  --color-prymary: #424647;
+  --color-secondary: #2e2e2e;
 }
 body {
   background-color: var(--color-prymary);
@@ -128,4 +128,43 @@ header {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 12px;
+}
+
+/* form */
+
+form input{
+  width: 100%;
+  outline: none;
+  color: #444;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+input[type="radio"]{
+  width: initial;
+  margin-right: 8px;
+}
+
+input::placeholder{
+  font-size: 16px;
+  font-weight: normal;
+}
+
+button[type="submit"]{
+  padding: 16px 32px;
+  background-color: var(--color-secondary);
+  color: white;
+  border-radius: 8px;
+  margin-top: 32px;
+  width: 100%;
+  font-size: 16px;
+}
+
+select{
+  padding: 8px 32px;
+  background-color: var(--color-prymary);
+  color: white;
+  border-radius: 2px;
+  font-size: 14px;
+   
 }
