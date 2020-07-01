@@ -1,170 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 * {
-  border: none;
   margin: 0;
+  border: none;
   padding: 0;
 }
 
 :root {
-  --color-prymary: #424647;
-  --color-secondary: #2e2e2e;
-}
-body {
-  background-color: var(--color-prymary);
-  font-family: "Roboto", sans-serif;
+  --primary-color: #dddada;
+  --secondary-color: #bdbd04;
 }
 
-header {
-  background-color: var(--color-secondary);
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--primary-color);
+}
+
+.links {
+  background-color: #3b3b3b;
   width: 100%;
   padding: 32px;
   text-align: center;
   box-sizing: border-box;
-  margin-bottom: 150px;
 }
 
-.links {
-  font-size: 24px;
+.links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 20px;
+  position: relative;
 }
 
 .links a + a {
   margin-left: 32px;
 }
 
-.links a {
-  text-decoration: none;
-  color: white;
-  position: relative;
-}
-
 .links a:hover {
-  color: #d1deff;
+  color: var(--secondary-color);
 }
 
 .links a::after {
   content: "";
-  width: 0%;
+  width: 0;
   height: 2px;
-  background-color: #d1deff;
+  background-color: var(--secondary-color);
   position: absolute;
-  left: 0;
+  left: 0px;
   bottom: -4px;
 }
 
 .links a:hover::after {
   width: 100%;
-  transition: width 400ms ease-in-out;
-}
-
-.card {
-  background-color: white;
-  width: 940px;
-  min-height: 500px;
-  margin: 45px auto;
-  display: grid;
-  grid-template-columns: 40% 60%;
-  border-radius: 8px;
-  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.5);
-  animation-name: up;
-  animation-duration: 300ms;
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes up {
-  from {
-    opacity: 0;
-    transform: translateX(10px);
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* detaisl */
-
-.details {
-  padding: 36px;
-}
-
-.details .item {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 16px 0;
-}
-
-.details .item:last-child {
-  border: none;
-}
-
-.details h3,
-.details .item div:nth-child(1) {
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: 0.8px;
-  font-weight: normal;
-  color: #444;
-}
-
-.details .item div:nth-child(2) {
-  font-size: 18px;
-  font-weight: bold;
-  color: #777;
-}
-
-.details h3 {
-  text-transform: uppercase;
-  font-weight: bold;
-  color: var(--color-secondary);
-}
-
-.details .item div:nth-child(2) span {
-  padding: 8px 16px;
-  background-color: var(--color-secondary);
-  border-radius: 16px;
-  color: white;
-  margin-right: 4px;
-  margin-top: 8px;
-  display: inline-block;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-/* form */
-
-form input{
-  width: 100%;
-  outline: none;
-  color: #444;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-input[type="radio"]{
-  width: initial;
-  margin-right: 8px;
-}
-
-input::placeholder{
-  font-size: 16px;
-  font-weight: normal;
-}
-
-button[type="submit"]{
-  padding: 16px 32px;
-  background-color: var(--color-secondary);
-  color: white;
-  border-radius: 8px;
-  margin-top: 32px;
-  width: 100%;
-  font-size: 16px;
-}
-
-select{
-  padding: 8px 32px;
-  background-color: var(--color-prymary);
-  color: white;
-  border-radius: 2px;
-  font-size: 14px;
-   
+  transition: width 300ms ease-in-out;
 }

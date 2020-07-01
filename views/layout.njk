@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    {% block head %}
-      <title>Aulas Particulares</title>
+    {% block title %}
     {% endblock %}
-    <link rel="stylesheet" href="/style.css"/>
-    <body>
-      <header>
-        <div class="links">
-          <a href="/teacher">Professores</a>
-          <a href="/students">Alunos</a>
-        </div>
-      </header>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="links">
+        <a href="/">Sobre</a>
+        <a href="/students">Aulas</a>
+      </div>
+    </header>
 
-      {% block content %}{% endblock content %}
-
-    </body>
-  </html>
+    {% block content %}    
+    {% endblock %}
+  </body>
+</html>
