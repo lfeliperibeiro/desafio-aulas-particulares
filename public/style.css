@@ -8,7 +8,7 @@
 
 :root {
   --primary-color: #dddada;
-  --secondary-color: #bdbd04;
+  --secondary-color: #f7b71d;
 }
 
 body {
@@ -22,6 +22,18 @@ body {
   padding: 32px;
   text-align: center;
   box-sizing: border-box;
+  position: relative;
+  
+  
+  
+}
+
+.links a img {
+  max-width: 60px;
+  max-height: 60px;
+  position: absolute;
+  right: 320px;
+  top: -16px;
 }
 
 .links a {
@@ -52,4 +64,75 @@ body {
 .links a:hover::after {
   width: 100%;
   transition: width 300ms ease-in-out;
+}
+
+/* card */
+
+.card {
+  background-color: white;
+  width: 800px;
+  height: 600px;
+  margin: 45px auto;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.avatar-url {
+  animation-name: up;
+  animation-duration: 8s00ms;
+  animation-timing-function: ease;
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.details {
+  padding: 32px;
+}
+
+.details .item {
+  padding: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.8px;
+}
+
+.details .item:last-child {
+  border: none;
+}
+
+.details .item div:nth-child(1) {
+  color: #777;
+  font-size: 16px;
+}
+
+.details .item div:nth-child(2) {
+  color: #3b3b3b;
+  font-size: 18px;
+  margin-top: 6px;
+}
+
+.details .item span {
+  background-color: var(--secondary-color);
+  padding: 8px 16px;
+  border-radius: 16px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+
+.details h3 {
+  color: var(--secondary-color);
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-left: 8px;
 }
