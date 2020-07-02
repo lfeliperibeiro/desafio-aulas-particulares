@@ -23,9 +23,6 @@ body {
   text-align: center;
   box-sizing: border-box;
   position: relative;
-  
-  
-  
 }
 
 .links a img {
@@ -71,7 +68,7 @@ body {
 .card {
   background-color: white;
   width: 800px;
-  height: 600px;
+  min-height: 600px;
   margin: 45px auto;
   display: grid;
   grid-template-columns: 40% 60%;
@@ -135,4 +132,42 @@ body {
   font-size: 20px;
   text-transform: uppercase;
   margin-left: 8px;
+}
+
+input {
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  color: #3b3b3b;
+}
+
+input[type="radio"] {
+  width: initial;
+  margin-right: 6px;
+}
+
+input::placeholder {
+  font-size: 16px;
+  color: #8d8d8d;
+}
+
+button[type="submit"] {
+  padding: 16px 32px;
+  font-size: 16px;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  width: 100%;
+  margin-top: 32px;
+}
+
+select {
+  width: 100%;
+  padding: 16px 32px;
+  font-size: 18px;
+  outline: none;
+  background-color: var(--secondary-color);
+}
+
+option {
+  background-color: var(--primary-color);
 }
