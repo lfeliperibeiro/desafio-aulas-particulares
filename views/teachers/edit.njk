@@ -1,46 +1,13 @@
 {% extends 'layout.njk' %}
 
 {% block content %}
-    <div class="card">
+    <form class="card" method="POST" action="/teachers">
         <section class="avatar-url" style="background: url(https://source.unsplash.com/collection/8360382/500x500) no-repeat center center / cover"></section>
         <section class="details">
-            <h3>Detalhes</h3>
-            <div class="item">
-                <div>Professor</div>
-                <div>Carlos Eduardo</div>
-            </div>
+            <h3>Editar Professor</h3>
 
-            <div class="item">
-                <div>Idade</div>
-                <div>52</div>
-            </div>
-
-            <div class="item">
-                <div>Escolaridade</div>
-                <div>Doutorado</div>
-            </div>
-
-            <div class="item">
-                <div>Tipo de Aula</div>
-                <div>
-                    <span>Presencial</span>
-                    <span>Distância</span>
-                </div>
-            </div>
-
-            <div class="item">
-                <div>Area de atuação</div>
-                <div>
-                    <span>Matemática</span>
-                    <span>Física</span>
-                </div>
-            </div>
-
-            <div class="item">
-                <div>Desde</div>
-                <div>05/02/2020</div>
-            </div>
+            {% include 'teachers/fields.njk' %}
         </section>
-    </div>
+    </form>
 
 {% endblock content %}

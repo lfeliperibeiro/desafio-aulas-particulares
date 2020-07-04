@@ -150,7 +150,7 @@ input::placeholder {
   font-size: 16px;
   color: #8d8d8d;
 }
-
+a.edit,
 button[type="submit"] {
   padding: 16px 32px;
   font-size: 16px;
@@ -170,4 +170,13 @@ select {
 
 option {
   background-color: var(--primary-color);
+}
+
+a.edit{
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 20px;
+  text-decoration: none;
+  color: #111;
 }
