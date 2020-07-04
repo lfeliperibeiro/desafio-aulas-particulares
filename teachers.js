@@ -13,7 +13,7 @@ exports.show = function (req, res) {
   const teacher = {
     ...foundTeacher,
     birth: age(foundTeacher.birth),
-    services: foundTeacher.services.split(", "),
+    services: foundTeacher.services.split(","),
     formation: graduation(foundTeacher.formations),
     created_at: new Intl.DateTimeFormat("pt-br").format(foundTeacher.create_at),
   };
