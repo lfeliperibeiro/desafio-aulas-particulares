@@ -20,6 +20,16 @@ exports.show = function (req, res) {
   return res.render("teachers/show", { teacher });
 };
 
+exports.edit = function (req, res) {
+  const { id } = req.params;
+  const foundTeacher = data.teachers.find(function (teacher) {
+    return teacher.id == id;
+  });
+  if (!foundTeacher) return res.send("Professor não encontrado");
+
+  return res.render("teachers/edit");
+};
+
 exports.post = function (req, res) {
   const keys = Object.keys(req.body);
   for (key of keys) {
