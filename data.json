@@ -1,16 +1,6 @@
 {
   "teachers": [
     {
-      "avatar_url": "http://www.img.com",
-      "name": "Mario Carvalho",
-      "birth": 274060800000,
-      "formation": "ensino-doutorado",
-      "classes": "D",
-      "services": "Matematica, Estatistica",
-      "create_at": 1593736168149,
-      "id": 2
-    },
-    {
       "id": 2,
       "avatar_url": "http://www.img.com",
       "name": "Fabio",
