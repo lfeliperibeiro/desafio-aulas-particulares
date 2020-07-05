@@ -6,6 +6,7 @@
         <section class="details">
             <h3>Editar Professor</h3>
             <form method="POST" action="/teachers?_method=PUT">
+            <input type="hidden" name="id" value="{{teacher.id}}">
 
                 {% include 'teachers/fields.njk' %}
 

@@ -3,6 +3,10 @@ const data = require("./data.json");
 const { age, graduation, date } = require("./utils");
 const Intl = require("intl");
 
+exports.index = function (req, res) {
+  return res.render("teachers/index", {teachers: data.teachers});
+}
+
 exports.show = function (req, res) {
   const { id } = req.params;
   const foundTeacher = data.teachers.find(function (teacher) {
@@ -71,8 +75,8 @@ exports.put = function (req, res) {
   const foundTeacher = data.teachers.find(function (teacher, foundindex) {
     if (id == teacher.id) {
       index = foundindex;
+      return true;
     }
-    return true;
   });
   if (!foundTeacher) return res.send("Professor não encontrado");
 
@@ -80,6 +84,7 @@ exports.put = function (req, res) {
     ...foundTeacher,
     ...req.body,
     birth: Date.parse(req.body.birth),
+    id: Number(req.body.id)
   };
   data.teachers[index] = teacher
 

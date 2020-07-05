@@ -166,7 +166,7 @@ select {
   outline: none;
   background-color: var(--secondary-color);
 }
-section{
+section {
   position: relative;
 }
 .button-salvar {
@@ -202,5 +202,52 @@ a.edit {
   font-size: 16px;
   border-radius: 8px;
   margin-top: 18px;
-  
 }
+
+/* table */
+
+.table-content {
+  display: block;
+}
+table{
+  border-spacing: 0;
+  width: 100%;
+}
+
+.table-content thead tr th {
+  padding: 16px 32px 24px 0px;
+  box-sizing: border-box;
+  margin-left: 20px;
+}
+
+.table-content tbody tr td {
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.table-content tbody tr:last-child td {
+  border: none;
+}
+
+.table-content tbody tr td:first-child{
+  display: grid;
+  grid-template-columns: 68px 1fr;
+}
+
+.table-content tbody tr td:first-child span{
+ height: 40px;
+ width: 40px;
+ border-radius: 50%;
+}
+
+.table-content tbody tr td:last-child a{
+  background-color: var(--secondary-color);
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+}
+
+
