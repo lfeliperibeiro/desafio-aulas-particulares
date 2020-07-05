@@ -12,7 +12,7 @@ module.exports = {
   },
   graduation: function formations(education) {
     const formantions = [
-      "Ensino médio Completo",
+      "Ensino Médio Completo",
       "Ensino Superior Completo",
       "Mestrado",
       "Doutorado",
