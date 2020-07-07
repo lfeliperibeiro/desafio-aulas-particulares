@@ -22,11 +22,11 @@
 <div class="item">
     <div>Grau de Escolaridade</div>
     <div>
-        <select name="formations" value="{{teacher.formations}}">
-            <option value="Ensino Médio Completo">Ensino Médio Completo</option>
-            <option value="Ensino Superior Completo">Ensino Superior Completo</option>
-            <option value="Mestrado">Mestrado</option>
-            <option value="Doutorado">Doutorado</option>
+        <select name="formations">
+            <option value="Ensino Médio Completo" {%if teacher.formations == 'Ensino Médio Completo' %} selected="selected" {% endif %}>Ensino Médio Completo</option>
+            <option value="Ensino Superior Completo" {% if teacher.formations == 'Ensino Superior Completo' %} selected="selected" {% endif %}>Ensino Superior Completo</option>
+            <option value="Mestrado" {%if teacher.formations == "Mestrado" %} selected="selected" {% endif %}>Mestrado</option>
+            <option value="Doutorado" {%if teacher.formations == "Doutorado" %} selected="selected" {% endif %}>Doutorado</option>
         </select>
     </div>
 </div>
@@ -51,4 +51,4 @@
     </div>
 </div>
 
-    <button class="button-salvar" type="submit">Salvar</button>
+<button class="button-salvar" type="submit">Salvar</button>

@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {% block title %}
-    {% endblock %}
-    <link rel="stylesheet" href="/style.css" />
+    {% block title %}{% endblock %}
+    <link rel="stylesheet" href="/style.css"/>
   </head>
   <body>
     <header>
       <div class="links">
         <a href="/"><img src="/assets/logo.png" alt="logo"></a>
-        <a href="/">Sobre</a>
-        <a href="/students">Aulas</a>
+        <a href="/teachers">Professores</a>
+        <a href="/students">Alunos</a>
       </div>
     </header>
 
-    {% block content %}    
-    {% endblock %}
+    {% block content %}{% endblock %}
   </body>
 </html>
