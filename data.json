@@ -1,5 +1,15 @@
 {
-  "students": [],
+  "students": [
+    {
+      "id": 1,
+      "avatar_url": "https://source.unsplash.com/collection/8969654//500x500",
+      "name": "Carlos Filhos",
+      "birth": 997315200000,
+      "email": "email@email.com.br",
+      "formations": "3º ano Médio",
+      "grade": "6"
+    }
+  ],
   "teachers": [
     {
       "id": 1,
