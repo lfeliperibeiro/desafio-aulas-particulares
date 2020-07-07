@@ -2,48 +2,41 @@
 
 {% block content %}
     <div class="card">
-        <section class="avatar-url" style="background: url({{teacher.avatar_url}}) no-repeat center center / cover"></section>
+        <section class="avatar-url" style="background: url({{student.avatar_url}}) no-repeat center center / cover"></section>
         <section class="details">
             <h3>Detalhes</h3>
             <div class="item">
                 <div>Professor</div>
-                <div>{{teacher.name}}</div>
+                <div>{{student.name}}</div>
             </div>
 
             <div class="item">
-                <div>Idade</div>
-                <div>{{teacher.birth}}</div>
+                <div>Aniversário</div>
+                <div>{{student.birth}}</div>
             </div>
 
             <div class="item">
                 <div>Escolaridade</div>
-                <div>{{teacher.formations}}</div>
+                <div>{{student.formations}}</div>
             </div>
 
             <div class="item">
-                <div>Tipo de Aula</div>
+                <div>email</div>
+                <div>{{student.email}}</div>
+            </div>
+
+            <div class="item">
+                <div>ano escolar</div>
                 <div>
-
-                    <span>{{"Presencial" if teacher.classes == "P" else "Distância"}}</span>
-
+                    {{student.formations}}
                 </div>
             </div>
 
             <div class="item">
-                <div>Area de atuação</div>
-                <div>
-                    {% for service in teacher.services %}
-                        <span>{{service}}</span>
-                    {% endfor %}
-
-                </div>
+                <div>Carga Horária</div>
+                <div>{{student.grade}}horas</div>
             </div>
-
-            <div class="item">
-                <div>Desde</div>
-                <div>{{teacher.created_at}}</div>
-            </div>
-            <a href="/teachers/{{teacher.id}}/edit" class="edit">Editar</a>
+            <a href="/students/{{student.id}}/edit" class="edit">Editar</a>
         </section>
     </div>
 

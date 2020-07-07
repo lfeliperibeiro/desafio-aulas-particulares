@@ -20,10 +20,7 @@ exports.show = function (req, res) {
 
   const student = {
     ...foundstudent,
-    birth: age(foundstudent.birth),
-    services: foundstudent.services.split(","),
-    formation: graduation(foundstudent.formations),
-    created_at: new Intl.DateTimeFormat("pt-br").format(foundstudent.create_at),
+    birth: date(foundstudent.birth).birthDay,
   };
   return res.render("students/show", { student });
 };

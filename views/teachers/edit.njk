@@ -11,10 +11,11 @@
                 {% include 'teachers/fields.njk' %}
 
             </form>
-            <form action="/teachers?_method=DELETE" method="post">
+            <form id="form-delete" action="/teachers?_method=DELETE" method="post">
                 <input type="hidden" name="id" value="{{teacher.id}}">
-                <button class="delete-button" type="submit">Delete</button>
+                <button id="delete-button" type="submit">Delete</button>
             </form>
         </section>
     </div>
+    {% include '../confirm.njk' %}
 {% endblock content %}

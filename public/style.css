@@ -198,7 +198,7 @@ a.edit {
   color: #111;
 }
 
-.delete-button {
+#delete-button {
   background-color: #f03e62;
   color: white;
   position: absolute;
@@ -241,6 +241,7 @@ table {
 .table-content tbody tr td:first-child {
   display: grid;
   grid-template-columns: 68px 1fr;
+  margin-top: 7px;
 }
 
 .table-content tbody tr td:first-child span {
