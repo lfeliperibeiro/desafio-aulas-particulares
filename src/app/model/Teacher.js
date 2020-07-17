@@ -46,16 +46,43 @@ module.exports = {
     });
   },
   find(id, callback) {
-    db.query(
-      `
-    SELECT * FROM  teachers WHERE id=$1
-    `,
-      [id],
-      (err, results) => {
-        if (err) throw `Database error ${err}`;
+    db.query(` SELECT * FROM  teachers WHERE id=$1`, [id], (err, results) => {
+      if (err) throw `Database error ${err}`;
 
-        callback(results.rows[0]);
-      }
-    );
+      callback(results.rows[0]);
+    });
+  },
+  update(data, callback) {
+    const query = `
+    UPDATE teachers SET
+    avatar_url=($1),
+        name=($2),
+        birth($3),
+        formations($4),
+        classes($5),
+        services($6)
+        WHERE id =$7        
+    `;
+    const values = [
+      data.avatar_url,
+      data.name,
+      date(data.bith).iso,
+      graduation(data.formations),
+      data.classes,
+      data.services,
+      data.id,
+    ];
+    db.query(query, values, (err, results) => {
+      if (err) return `Database error ${err}`;
+
+      callback();
+    });
+  },
+  delete(id, callback) {
+    db.query(`DELETE FROM teachers WHERE id = $1`, [id], (err, results) => {
+      if (err) throw `DataBase error ${err}`;
+
+      callback();
+    });
   },
 };

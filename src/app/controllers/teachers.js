@@ -12,7 +12,6 @@ module.exports = {
   create(req, res) {
     return res.render("teachers/create");
   },
-
   post(req, res) {
     const keys = Object.keys(req.body);
     for (key of keys) {
@@ -23,8 +22,6 @@ module.exports = {
         return res.redirect(`/teachers/${teacher.id}`);
       });
     }
-
-    return res.redirect("/teachers");
   },
   show(req, res) {
     Teacher.find(req.params.id, (teacher) => {
@@ -36,17 +33,31 @@ module.exports = {
 
       return res.render("teachers/show", { teacher });
     });
-    return;
   },
-
   edit(req, res) {
-    return;
+    Teacher.find(req.params.id, (teacher) => {
+      if (!teacher) return res.send("Professor não encontrado");
+      teacher.formations = graduation(teacher.formations);
+      teacher.birth = date(teacher.birth).iso;
+
+      return res.render("teachers/edit", { teacher });
+    });
   },
   put(req, res) {
-    return;
+    const keys = Object.keys(req.body);
+    for (key of keys) {
+      if (req.body[key] == "") {
+        return res.send("Preencha os campos vazios");
+      }
+    }
+    Teacher.update(req.body, () => {
+      return res.redirect(`/teachers/${req.body.id}`);
+    });
   },
 
   delete(req, res) {
-    return;
+    Teacher.delete(req.body, () => {
+      return res.redirect("/teachers");
+    });
   },
 };
