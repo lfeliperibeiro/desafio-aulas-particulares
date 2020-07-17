@@ -1,31 +1,16 @@
 const { age, graduation, date } = require("../../lib/utils");
 const Intl = require("intl");
+const Student = require("../model/Student");
 
 module.exports = {
   index(req, res) {
-    return res.render("students/index", { students: data.students });
+    Student.all((students) => {
+      return res.render("students/index", { students });
+    });
   },
 
   create(req, res) {
     return res.render("students/create");
-  },
-  show(req, res) {
-    const { id } = req.params;
-    const foundstudent = data.students.find(function (student) {
-      return student.id == id;
-    });
-    if (!foundstudent) return res.send("Professor não encontrado");
-
-    return;
-  },
-  edit(req, res) {
-    const { id } = req.params;
-    const foundstudent = data.students.find(function (student) {
-      return student.id == id;
-    });
-    if (!foundstudent) return res.send("Professor não encontrado");
-
-    return;
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -33,29 +18,41 @@ module.exports = {
       if (req.body[key] == "") {
         return res.send("Preencha os campos vazios");
       }
+      Student.create(req.body, (student) => {
+        return res.redirect(`/students/${student.id}`);
+      });
     }
+  },
+  show(req, res) {
+    Student.find(req.params.id, (student) => {
+      if (!student) return res.send("Professor não encontrado");
+      student.birth = age(student.birth);
+      return res.render("students/show", { student });
+    });
+  },
+  edit(req, res) {
+    Student.find(req.params.id, (student) => {
+      if (!student) return res.send("Professor não encontrado");
+      student.birth = date(student.birth).iso;
 
-    return res.redirect("/students");
+      return res.render("students/edit", { student });
+    });
   },
   put(req, res) {
-    const { id } = req.body;
-    let index = 0;
-    const foundstudent = data.students.find(function (student, foundindex) {
-      if (id == student.id) {
-        index = foundindex;
-        return true;
+    const keys = Object.keys(req.body);
+    for (key of keys) {
+      if (req.body[key] == "") {
+        return res.send("Preencha os campos vazios");
       }
+    }
+    Student.update(req.body, () => {
+      return res.redirect(`/students/${req.body.id}`);
     });
-    if (!foundstudent) return res.send("Professor não encontrado");
-
-    return res.redirect(`/students/${id}`);
   },
 
   delete(req, res) {
-    const { id } = req.body;
-    const filteredstudents = data.students.filter(function (student) {
-      return student.id != id;
+    Student.delete(req.body.id, () => {
+      return res.redirect("/students");
     });
-    return res.redirect("/students");
   },
 };
