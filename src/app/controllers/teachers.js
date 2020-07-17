@@ -1,61 +1,52 @@
 const { age, graduation, date } = require("../../lib/utils");
 const Intl = require("intl");
+const Teacher = require("../model/Teacher");
 
 module.exports = {
   index(req, res) {
-    return res.render("teachers/index", { teachers: data.teachers });
+    Teacher.all((teachers) => {
+      return res.render("teachers/index", { teachers });
+    });
   },
 
   create(req, res) {
     return res.render("teachers/create");
   },
-  show(req, res) {
-    const { id } = req.params;
-    const foundTeacher = data.teachers.find(function (teacher) {
-      return teacher.id == id;
-    });
-    if (!foundTeacher) return res.send("Professor não encontrado");
 
-    return;
-  },
-  edit(req, res) {
-    const { id } = req.params;
-    const foundTeacher = data.teachers.find(function (teacher) {
-      return teacher.id == id;
-    });
-    if (!foundTeacher) return res.send("Professor não encontrado");
-
-    return;
-  },
   post(req, res) {
     const keys = Object.keys(req.body);
     for (key of keys) {
       if (req.body[key] == "") {
         return res.send("Preencha os campos vazios");
       }
+      Teacher.create(req.body, (teacher) => {
+        return res.redirect(`/teachers/${teacher.id}`);
+      });
     }
 
     return res.redirect("/teachers");
   },
-  put(req, res) {
-    const { id } = req.body;
-    let index = 0;
-    const foundTeacher = data.teachers.find(function (teacher, foundindex) {
-      if (id == teacher.id) {
-        index = foundindex;
-        return true;
-      }
-    });
-    if (!foundTeacher) return res.send("Professor não encontrado");
+  show(req, res) {
+    Teacher.find(req.params.id, (teacher) => {
+      if (!teacher) return res.send("Professor não encontrado");
+      teacher.formations = graduation(teacher.formations);
+      teacher.birth = age(teacher.birth);
+      teacher.services = teacher.services.split(",");
+      teacher.created_at = date(teacher.created_at).format;
 
-    return res.redirect(`/teachers/${id}`);
+      return res.render("teachers/show", { teacher });
+    });
+    return;
+  },
+
+  edit(req, res) {
+    return;
+  },
+  put(req, res) {
+    return;
   },
 
   delete(req, res) {
-    const { id } = req.body;
-    const filteredTeachers = data.teachers.filter(function (teacher) {
-      return teacher.id != id;
-    });
-    return res.redirect("/teachers");
+    return;
   },
 };

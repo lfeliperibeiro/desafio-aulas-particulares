@@ -10,16 +10,16 @@ module.exports = {
     }
     return age;
   },
-  graduation: function formations(education) {
-    const formantions = [
+  graduation: function graduation(education) {
+    const formations = [
       "Ensino Médio Completo",
       "Ensino Superior Completo",
       "Mestrado",
       "Doutorado",
     ];
-    for (let formation of formantions) {
+    for (let formation of formations) {
       if (education == [formation]) {
-        return formations;
+        return formation;
       }
     }
   },
@@ -36,6 +36,7 @@ module.exports = {
       year,
       iso: `${year}-${month}-${day}`,
       birthDay: `${day}/${month}`,
+      format: `${day}/${month}/${year}`,
     };
   },
 };
