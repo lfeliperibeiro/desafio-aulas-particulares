@@ -260,10 +260,47 @@ table {
 
 .table-content a {
   background-color: var(--secondary-color);
-  padding: 8px 16px;
+  padding: 8px;
   border-radius: 6px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 6px;
+}
+
+/* filters */
+
+.table-content .header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.table-content button.filter-button{
+  background-color: var(--secondary-color);
+  padding: 8px 32px;
+  border-radius: 6px;
+  font-size: 16px;
   color: white;
   text-decoration: none;
   display: inline-block;
   margin: 6px;
+}
+
+.table-content .header a{
+ width: 120px;
+}
+
+.table-content .header form{
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  grid-gap: 8px;
+  align-items: center;
+}
+
+.table-content .header form input{
+  border: 1px solid #eee;
+  padding: 4px 8px;
+  box-sizing: border-box;
 }
