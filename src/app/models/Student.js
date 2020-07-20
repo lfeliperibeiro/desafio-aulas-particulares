@@ -75,8 +75,8 @@ module.exports = {
       data.formations,
       data.grade,
       data.email,
-      data.id,
       data.teacher,
+      data.id,
     ];
     db.query(query, values, (err, results) => {
       if (err) throw `Database error ${err}`;

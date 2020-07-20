@@ -29,7 +29,7 @@ module.exports = {
   show(req, res) {
     Student.find(req.params.id, (student) => {
       if (!student) return res.send("Professor não encontrado");
-      student.birth = age(student.birth);
+      student.birth = date(student.birth).birthDay;
       return res.render("students/show", { student });
     });
   },
@@ -38,7 +38,7 @@ module.exports = {
       if (!student) return res.send("Professor não encontrado");
       student.birth = date(student.birth).iso;
       Student.teachersSelectOption((options) => {
-        return res.render("students/create",{student, teachersSelectOption: options });        
+        return res.render("students/edit",{student, teachersSelectOption: options });        
       });      
     });
   },
