@@ -47,5 +47,13 @@
         <input type="number" name="grade" placeholder="horas" value="{{student.grade}}">
     </div>
 </div>
+<div class="item">
+    <div>Professor</div>
+    <select name="teacher">
+        {% for teacher in teachersSelectOption %}
+            <option value="{{teacher.id}}" {%if student.teacher_id == teacher.id %} selected="selected" {% endif %}>{{teacher.name}}</option>
+        {% endfor %}
+    </select>
+</div>
 
 <button class="button-salvar" type="submit">Salvar</button>

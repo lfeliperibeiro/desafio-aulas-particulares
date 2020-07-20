@@ -1,5 +1,5 @@
 module.exports = {
-  age: function age(timestamp) {
+  age(timestamp) {
     const today = new Date();
     const birthDate = new Date(timestamp);
 
@@ -10,7 +10,7 @@ module.exports = {
     }
     return age;
   },
-  graduation: function graduation(education) {
+  graduation(education) {
     const formations = [
       "Ensino Médio Completo",
       "Ensino Superior Completo",
@@ -24,7 +24,7 @@ module.exports = {
     }
   },
 
-  date: function (timestamp) {
+  date(timestamp) {
     const date = new Date(timestamp);
     const year = date.getUTCFullYear();
     const month = `0${date.getUTCMonth() + 1}`.slice(-2);

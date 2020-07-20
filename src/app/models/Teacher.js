@@ -3,18 +3,12 @@ const db = require("../../config/db");
 
 module.exports = {
   all(callback) {
-    db.query(
-      `
-      SELECT * FROM teachers ORDER BY name ASC
-      `,
-      (err, results) => {
-        if (err) throw `DataBase error ${err}`;
+    db.query(` SELECT * FROM teachers`, (err, results)=>{
+      if(err) throw `Database error ${err}`
 
-        callback(results.rows);
-      }
-    );
+      callback(results.rows)
+    })
   },
-
   create(data, callback) {
     const query = `
     INSERT INTO teachers(
@@ -42,7 +36,7 @@ module.exports = {
     db.query(query, values, (err, results) => {
       if (err) throw `DataBase error ${err}`;
 
-      callback(results.rows[0]);
+     return callback(results.rows[0]);
     });
   },
   find(id, callback) {
@@ -67,7 +61,7 @@ module.exports = {
       data.avatar_url,
       data.name,
       date(data.birth).iso,
-      data.formations,
+      graduation(data.formations),
       data.classes,
       data.services,
       data.id,
@@ -75,14 +69,14 @@ module.exports = {
     db.query(query, values, (err, results) => {
       if (err) throw `Database error ${err}`;
 
-      callback();
+     return callback();
     });
   },
   delete(id, callback) {
     db.query(`DELETE FROM teachers WHERE id=$1`, [id], (err, results) => {
       if (err) throw `DataBase error ${err}`;
 
-      callback();
+     return callback();
     });
   },
 };

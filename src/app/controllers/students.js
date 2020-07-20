@@ -1,6 +1,6 @@
 const { age, graduation, date } = require("../../lib/utils");
 const Intl = require("intl");
-const Student = require("../model/Student");
+const Student = require("../models/Student");
 
 module.exports = {
   index(req, res) {
@@ -10,7 +10,9 @@ module.exports = {
   },
 
   create(req, res) {
-    return res.render("students/create");
+    Student.teachersSelectOption((options) => {
+      return res.render("students/create", { teachersSelectOption: options });
+    });
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -34,8 +36,9 @@ module.exports = {
     Student.find(req.params.id, (student) => {
       if (!student) return res.send("Professor não encontrado");
       student.birth = date(student.birth).iso;
-
-      return res.render("students/edit", { student });
+      Student.teachersSelectOption((options) => {
+        return res.render("students/create",{student, teachersSelectOption: options });        
+      });      
     });
   },
   put(req, res) {
