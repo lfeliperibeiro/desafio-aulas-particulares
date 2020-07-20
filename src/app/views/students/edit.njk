@@ -6,9 +6,9 @@
         <section class="details">
             <h3>Editar Aluno</h3>
             <form method="POST" action="/students?_method=PUT">
-                <input type="hidden" name="id" value="{{student.id}}">
 
                 {% include 'students/fields.njk' %}
+                <input type="hidden" name="id" value="{{student.id}}">
 
             </form>
             <form id="form-delete" action="/students?_method=DELETE" method="post">
@@ -18,4 +18,5 @@
         </section>
     </div>
     <script src="/confirm.js"></script>
+    
 {% endblock content %}

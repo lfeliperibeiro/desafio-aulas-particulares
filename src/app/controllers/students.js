@@ -20,10 +20,11 @@ module.exports = {
       if (req.body[key] == "") {
         return res.send("Preencha os campos vazios");
       }
-      Student.create(req.body, (student) => {
-        return res.redirect(`/students/${student.id}`);
-      });
     }
+    Student.create(req.body, (student) => {
+      return res.redirect(`/students/${student.id}`);
+    });
+    
   },
   show(req, res) {
     Student.find(req.params.id, (student) => {

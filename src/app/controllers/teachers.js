@@ -8,7 +8,6 @@ module.exports = {
       return res.render("teachers/index", { teachers });
     });
   },
-
   create(req, res) {
     return res.render("teachers/create");
   },
@@ -18,10 +17,10 @@ module.exports = {
       if (req.body[key] == "") {
         return res.send("Preencha os campos vazios");
       }
+    }
       Teacher.create(req.body, (teacher) => {
         return res.redirect(`/teachers/${teacher.id}`);
       });
-    }
   },
   show(req, res) {
     Teacher.find(req.params.id, (teacher) => {

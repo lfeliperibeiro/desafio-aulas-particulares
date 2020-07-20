@@ -24,7 +24,7 @@ module.exports = {
         email,
         formations,
         grade,
-        teachers_id   
+        teacher_id   
     
     )VALUES ($1,$2,$3,$4,$5,$6,$7)
     RETURNING id
@@ -46,7 +46,11 @@ module.exports = {
     });
   },
   find(id, callback) {
-    db.query(` SELECT * FROM  students WHERE id=$1`, [id], (err, results) => {
+    db.query(` 
+    SELECT students.*, teachers.name AS teacher_name 
+    FROM students
+    LEFT JOIN teachers ON (students.teacher_id = teachers.id)
+    WHERE students.id=$1`, [id], (err, results) => {
       if (err) throw `Database error ${err}`;
 
       return callback(results.rows[0]);
@@ -61,7 +65,7 @@ module.exports = {
         formations=($4),
         grade=($5),
         email=($6),
-        teachers=($7)
+        teacher_id=($7)
         WHERE id=$8        
     `;
     const values = [
